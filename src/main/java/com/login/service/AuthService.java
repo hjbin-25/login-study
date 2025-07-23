@@ -31,6 +31,20 @@ public class AuthService {
     }
 
     public String login(LoginRequest request) {
-        return null;
+        String username = request.getUsername();
+        String password = request.getPassword();
+
+        if (username != null && password != null) {
+            if (userRepository.getUserByUsername(username) != null) {
+
+                User user = userRepository.getUserByUsername(username);
+
+                if (passwordEncoder.matches(password, user.getPassword())) {
+                    return "login_success";
+                }
+            }
+        }
+
+        return "login_fail";
     }
 }
