@@ -4,10 +4,9 @@ import com.login.dto.LoginRequest;
 import com.login.dto.SignupRequest;
 import com.login.service.AuthService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,12 +17,12 @@ public class AuthController {
 
     @PostMapping("/signup")
     public String signup(@RequestBody SignupRequest request) {
-        authService.signUp(request);
-        return "success";
+        authService.signup(request);
+        return "회원가입 성공";
     }
 
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest request) {
-        return authService.login(request);
+        return authService.login(request); // 토큰 반환 예정
     }
 }

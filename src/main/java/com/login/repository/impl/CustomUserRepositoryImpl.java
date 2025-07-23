@@ -2,11 +2,15 @@ package com.login.repository.impl;
 
 import com.login.domain.User;
 import com.login.repository.CustomUserRepository;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MemoryUserRepository implements CustomUserRepository {
+@Repository
+@Primary
+public class CustomUserRepositoryImpl implements CustomUserRepository {
 
     Map<String, User> accounts = new HashMap<>();
 

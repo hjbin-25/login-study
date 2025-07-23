@@ -18,7 +18,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
-    public void signUp(SignupRequest request) {
+    public void signup(SignupRequest request) {
         String username = request.getUsername();
         String password = request.getPassword();
 
